@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px 20px;
+
+    overflow:hidden;
+
+    font-family:'Cormorant Garamond',serif;
+
+    background:linear-gradient(
+        135deg,
+        #140f0d,
+        #2b1d18,
+        #3b2a22,
+        #1b1411
+    );
+
+    background-size:300% 300%;
+    animation:bgFlow 12s ease infinite;
+
+    position:relative;
+
+    color:#f5e6c8;
+}
+
+/* Animated Background */
+@keyframes bgFlow{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* Luxury Glow Effects */
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    opacity:0.4;
+}
+
+body::before{
+    width:420px;
+    height:420px;
+
+    background:#d4a37355;
+
+    top:-120px;
+    left:-120px;
+
+    animation:moveGlow1 10s ease-in-out infinite;
+}
+
+body::after{
+    width:350px;
+    height:350px;
+
+    background:#b0896855;
+
+    bottom:-120px;
+    right:-100px;
+
+    animation:moveGlow2 12s ease-in-out infinite;
+}
+
+/* Glow Animations */
+@keyframes moveGlow1{
+
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(60px,40px) scale(1.15);
+    }
+}
+
+@keyframes moveGlow2{
+
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(-50px,-40px) scale(1.1);
+    }
+}
+
+/* Main Vintage Heading */
+.title{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    margin-bottom:65px;
+
+    font-family:'Cinzel',serif;
+
+    font-size:5rem;
+    font-weight:700;
+
+    letter-spacing:6px;
+
+    text-transform:uppercase;
+
+    color:#e7ae3e;
+
+    text-shadow:
+        0 0 15px rgba(255,223,160,0.2),
+        0 0 40px rgba(0,0,0,0.6);
+
+    animation:fadeDown 1.5s ease;
+}
+
+/* Decorative Vintage Lines */
+.title::before,
+.title::after{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:1.5px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #c8a96b,
+        transparent
+    );
+}
+
+.title::before{
+    top:-20px;
+}
+
+.title::after{
+    bottom:-22px;
+}
+
+/* Giant Feather */
+.pen{
+    position:absolute;
+
+    left:-240px;
+    top:-150px;
+
+    font-size:250px;
+
+    transform:rotate(-50deg);
+
+    opacity:0.95;
+
+    filter:
+        drop-shadow(0 0 18px rgba(231,174,62,0.35))
+        drop-shadow(0 0 40px rgba(0,0,0,0.5));
+
+    animation:featherFloat 5s ease-in-out infinite;
+
+    z-index:-1;
+}
+
+/* Feather Animation */
+@keyframes featherFloat{
+
+    0%,100%{
+        transform:rotate(-25deg) translateY(0px);
+    }
+
+    50%{
+        transform:rotate(-12deg) translateY(-25px);
+    }
+}
+
+/* Subtitle */
+.subtitle{
+    margin-top:14px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:1.4rem;
+
+    font-style:italic;
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+    color:#d3ae64;
+
+    opacity:0.9;
+
+    text-transform:none;
+}
+
+/* Navigation Layout */
+ul{
+    position:relative;
+    z-index:1;
+
+    width:90%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+    gap:28px;
+
+    list-style:none;
+}
+
+/* Vintage Floating Cards */
+ul li a{
+    position:relative;
+
+    display:block;
+
+    padding:24px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:1.5rem;
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    color:#e6be6f;
+
+    border-radius:22px;
+
+    background:rgba(255,248,220,0.06);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,223,160,0.15);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.35),
+        inset 0 0 20px rgba(255,223,160,0.05);
+
+    overflow:hidden;
+
+    transition:0.5s ease;
+
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+/* Card Shine Effect */
+ul li a::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:50%;
+    height:100%;
+
+    background:rgba(255,255,255,0.12);
+
+    transform:skewX(-25deg);
+
+    transition:0.9s;
+}
+
+ul li a:hover::before{
+    left:150%;
+}
+
+/* Hover */
+ul li a:hover{
+
+    transform:translateY(-14px) scale(1.04);
+
+    background:rgba(255,248,220,0.11);
+
+    color:#ffe6a7;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.45),
+        0 0 25px rgba(255,223,160,0.15);
+}
+
+/* Floating Cards */
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Fade Animation */
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media(max-width:700px){
+
+    .title{
+        font-size:2.8rem;
+
+        text-align:center;
+    }
+
+    .subtitle{
+        font-size:1rem;
+
+        padding:0 10px;
+    }
+
+    .pen{
+        font-size:8rem;
+
+        right:-40px;
+        top:10px;
+    }
+
+    ul{
+        width:95%;
+    }
+
+    ul li a{
+        font-size:1.2rem;
+        padding:18px;
+    }
+
+    .title::before,
+    .title::after{
+        width:100px;
+    }
+}

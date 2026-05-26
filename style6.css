@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@400;500;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:60px 20px;
+
+    overflow-x:hidden;
+
+    /* Luxury Brown & Ivory Gradient */
+    background:
+    radial-gradient(circle at top left,#f5e6c844,transparent 30%),
+    radial-gradient(circle at bottom right,#8b5e3c55,transparent 30%),
+    linear-gradient(
+        135deg,
+        #1f1713,
+        #3a2b24,
+        #5c4033,
+        #f5e6c8
+    );
+
+    background-size:300% 300%;
+    animation:bgFlow 12s ease infinite;
+
+    color:#f8f1e4;
+
+    position:relative;
+}
+
+/* Animated Background */
+@keyframes bgFlow{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* Soft Glow */
+body::before{
+    content:"";
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(255,248,220,0.08);
+
+    filter:blur(90px);
+
+    top:-150px;
+    left:-120px;
+
+    animation:glow 8s ease-in-out infinite;
+}
+
+@keyframes glow{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* Heading */
+.title{
+    position:relative;
+
+    font-family:'Cinzel',serif;
+    font-size:5rem;
+
+    letter-spacing:5px;
+
+    color:#fff8e7;
+
+    margin-bottom:50px;
+
+    text-shadow:
+        0 0 12px rgba(255,248,220,0.3),
+        0 0 30px rgba(0,0,0,0.5);
+
+    animation:fadeDown 1.5s ease;
+}
+
+
+
+
+/* Poem Card */
+h3{
+    position:relative;
+
+    width:85%;
+    max-width:950px;
+
+    padding:55px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    font-style:italic;
+
+    font-size:1.6rem;
+    line-height:2.3;
+    letter-spacing:1px;
+
+    color:#fff8e7;
+
+    background:rgba(255,248,220,0.08);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,248,220,0.18);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35),
+        inset 0 0 20px rgba(255,248,220,0.06);
+
+    overflow:hidden;
+
+    animation:floatCard 6s ease-in-out infinite;
+}
+
+/* Elegant Shine */
+h3::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:45%;
+    height:100%;
+
+    background:rgba(255,255,255,0.12);
+
+    transform:skewX(-20deg);
+
+    animation:shine 8s infinite;
+}
+
+@keyframes shine{
+    0%{
+        left:-120%;
+    }
+    100%{
+        left:140%;
+    }
+}
+
+/* Floating Effect */
+@keyframes floatCard{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Fade */
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:700px){
+
+    .title{
+        font-size:3rem;
+        text-align:center;
+    }
+
+    .title::before{
+        width:50px;
+        height:50px;
+
+        top:-2px;
+        left:-10px;
+    }
+
+    .title::after{
+        width:30px;
+
+        top:38px;
+        left:28px;
+    }
+
+    .title::first-letter{
+        font-size:4rem;
+    }
+
+    h3{
+        width:95%;
+        padding:30px;
+        font-size:1.15rem;
+        line-height:2;
+    }
+}
+
+.title::before,
+.title::after{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:1.5px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #c8a96b,
+        transparent
+    );
+}
+
+.title::before{
+    top:-20px;
+    right:38%;
+}
+
+.title::after{
+    bottom:-12px;
+}
+
+.title::after{
+    bottom:-22px;
+
+    left:50%;
+    transform:translateX(-50%);
+}
+/* Title */
+/* .title{
+    position:relative;
+
+    font-family:'Cinzel',serif;
+
+    font-size:5rem;
+
+    letter-spacing:6px;
+
+    color:#e7ae3e;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 15px rgba(255,223,160,0.15),
+        0 0 40px rgba(0,0,0,0.6);
+
+    margin-bottom:60px;
+
+    animation:fadeDown 1.5s ease;
+
+    z-index:2;
+} */
+
+/* Very Large Vintage Dropped Pen */
+/* Very Large Vintage Dropped Pen */
+.subtitle::after{
+    content:"🖋";
+
+    position:absolute;
+
+    right:800px;   /* moved more to right */
+    top:-20px;
+    left:1210px;
+
+    font-size:10rem;
+
+    opacity:0.9;
+
+    transform:rotate(0.1deg);
+
+    filter:
+        drop-shadow(0 0 18px rgba(231,174,62,0.3))
+        drop-shadow(0 0 40px rgba(0,0,0,0.5));
+
+    animation:droppedPen 5s ease-in-out infinite;
+
+    z-index:-1;
+}

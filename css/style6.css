@@ -235,7 +235,7 @@ h3::before{
 
     position:absolute;
 
-    right:clamp(-80px,-10vw,-30px);
+    right:clamp(10px,10vw, 30px);
 
     top:clamp(-40px,-5vw,-20px);
 

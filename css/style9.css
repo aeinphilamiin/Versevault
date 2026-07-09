@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@400;500;700&display=swap');
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:60px 20px;
+
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at top left,#f5e6c844,transparent 30%),
+        radial-gradient(circle at bottom right,#8b5e3c55,transparent 30%),
+        linear-gradient(
+            135deg,
+            #1f1713,
+            #3a2b24,
+            #5c4033,
+            #f5e6c8
+        );
+
+    background-size:300% 300%;
+    animation:bgFlow 12s ease infinite;
+
+    color:#f8f1e4;
+
+    position:relative;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
+@keyframes bgFlow{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* =========================
+   GLOW
+========================= */
+body::before{
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(255,248,220,0.08);
+
+    filter:blur(90px);
+
+    top:-150px;
+    left:-120px;
+
+    animation:glow 8s ease-in-out infinite;
+}
+
+@keyframes glow{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* =========================
+   TITLE
+========================= */
+.title{
+    position:relative;
+
+    font-family:'Cinzel',serif;
+
+    font-size:5rem;
+
+    letter-spacing:5px;
+
+    color:#fff8e7;
+
+    margin-bottom:50px;
+
+    text-shadow:
+        0 0 12px rgba(255,248,220,0.3),
+        0 0 30px rgba(0,0,0,0.5);
+
+    animation:fadeDown 1.5s ease;
+}
+
+.title::before,
+.title::after{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:2px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #d8b36d,
+        transparent
+    );
+}
+
+.title::before{
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.title::after{
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* =========================
+   POEM CARD
+========================= */
+.poem-card{
+
+    position:relative;
+
+    width:85%;
+    max-width:950px;
+
+    padding:55px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    background:rgba(255,248,220,0.08);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,248,220,0.18);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35),
+        inset 0 0 20px rgba(255,248,220,0.06);
+
+    overflow:hidden;
+
+    animation:floatCard 6s ease-in-out infinite;
+}
+
+/* SHINE EFFECT */
+.poem-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:45%;
+    height:100%;
+
+    background:rgba(255,255,255,0.12);
+
+    transform:skewX(-20deg);
+
+    animation:shine 8s infinite;
+}
+
+/* =========================
+   POEM TEXT
+========================= */
+.poem-card p{
+
+    position:relative;
+    z-index:2;
+
+    font-size:1.65rem;
+
+    line-height:2.2;
+
+    letter-spacing:1px;
+
+    font-style:italic;
+
+    color:#fff8e7;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes shine{
+
+    0%{
+        left:-120%;
+    }
+
+    100%{
+        left:150%;
+    }
+
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+/* =========================
+   RESPONSIVE MOBILE FIX
+========================= */
+
+@media(max-width:768px){
+
+    body{
+
+        min-height:100svh;
+
+        padding:
+        35px 12px;
+
+        justify-content:flex-start;
+
+        overflow-x:hidden;
+
+    }
+
+
+    body::before{
+
+        width:260px;
+        height:260px;
+
+        top:-80px;
+        left:-80px;
+
+        filter:blur(70px);
+
+    }
+
+
+
+    /* TITLE */
+
+    .title{
+
+        width:100%;
+
+        font-size:clamp(2rem,8vw,3rem);
+
+        letter-spacing:clamp(1px,1vw,3px);
+
+        line-height:1.2;
+
+        text-align:center;
+
+        margin-top:30px;
+
+        margin-bottom:45px;
+
+    }
+
+
+    .title::before,
+    .title::after{
+
+        width:clamp(70px,35vw,120px);
+
+        height:1.5px;
+
+    }
+
+
+    .title::before{
+
+        top:-14px;
+
+    }
+
+
+    .title::after{
+
+        bottom:-14px;
+
+    }
+
+
+
+    /* CARD */
+
+    .poem-card{
+
+        width:100%;
+
+        max-width:100%;
+
+        padding:
+
+        clamp(18px,5vw,30px);
+
+        border-radius:20px;
+
+    }
+
+
+
+    .poem-card p{
+
+        font-size:
+
+        clamp(0.95rem,4vw,1.2rem);
+
+        line-height:
+
+        clamp(1.7,5vw,2);
+
+        letter-spacing:.5px;
+
+    }
+
+
+}
+
+
+
+/* =========================
+   EXTRA SMALL PHONES
+   320px - 360px
+========================= */
+
+@media(max-width:360px){
+
+
+    body{
+
+        padding:25px 10px;
+
+    }
+
+
+    .title{
+
+        font-size:1.8rem;
+
+        letter-spacing:1px;
+
+        margin-bottom:35px;
+
+    }
+
+
+    .title::before,
+    .title::after{
+
+        width:65px;
+
+    }
+
+
+    .poem-card{
+
+        padding:16px 12px;
+
+        border-radius:16px;
+
+    }
+
+
+    .poem-card p{
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+}
+
+
+
+/* =========================
+   VERY TALL MOBILE SCREENS
+========================= */
+
+@media(min-height:800px) and (max-width:768px){
+
+    body{
+
+        justify-content:center;
+
+    }
+
+}

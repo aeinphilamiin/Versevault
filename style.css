@@ -16,7 +16,8 @@ body{
 
     padding:50px 20px;
 
-    overflow:hidden;
+    overflow-x:hidden;
+overflow-y:auto;
 
     font-family:'Cormorant Garamond',serif;
 
@@ -125,11 +126,15 @@ body::after{
 
     font-family:'Cinzel',serif;
 
-    font-size:5rem;
+    /* font-size:5rem; */
     font-weight:700;
 
-    letter-spacing:6px;
-
+    /* letter-spacing:6px; */
+font-size:clamp(2.2rem,8vw,5rem);
+letter-spacing:clamp(2px,1vw,6px);
+text-align:center;
+line-height:1.15;
+padding:0 10px;
     text-transform:uppercase;
 
     color:#e7ae3e;
@@ -148,7 +153,8 @@ body::after{
 
     position:absolute;
 
-    width:220px;
+    /* width:220px; */
+    width:min(220px,55vw);
     height:1.5px;
 
     background:linear-gradient(
@@ -171,10 +177,13 @@ body::after{
 .pen{
     position:absolute;
 
-    left:-240px;
+    /* left:-240px;
     top:-150px;
 
-    font-size:250px;
+    font-size:250px; */
+    font-size:clamp(110px,28vw,250px);
+left:clamp(-140px,-18vw,-240px);
+top:clamp(-90px,-12vw,-150px);
 
     transform:rotate(-50deg);
 
@@ -231,8 +240,10 @@ ul{
 
     display:grid;
 
+    /* grid-template-columns: */
+    /* repeat(auto-fit,minmax(230px,1fr)); */
     grid-template-columns:
-    repeat(auto-fit,minmax(230px,1fr));
+repeat(auto-fit,minmax(180px,1fr));
 
     gap:28px;
 
@@ -245,13 +256,14 @@ ul li a{
 
     display:block;
 
-    padding:24px;
-
+    /* padding:24px; */
+padding:clamp(16px,4vw,24px);
+font-size:clamp(1.1rem,4vw,1.5rem);
     text-align:center;
 
     text-decoration:none;
 
-    font-size:1.5rem;
+    /* font-size:1.5rem; */
     font-weight:600;
 
     letter-spacing:1px;
@@ -270,7 +282,8 @@ ul li a{
         0 10px 35px rgba(0,0,0,0.35),
         inset 0 0 20px rgba(255,223,160,0.05);
 
-    overflow:hidden;
+    overflow-x:hidden;
+overflow-y:auto;
 
     transition:0.5s ease;
 
@@ -341,38 +354,83 @@ ul li a:hover{
 }
 
 /* Mobile Responsive */
-@media(max-width:700px){
+@media (max-width:700px){
+
+    body{
+        padding:30px 15px;
+    }
 
     .title{
-        font-size:2.8rem;
-
-        text-align:center;
+        font-size:clamp(2rem,9vw,3rem);
+        letter-spacing:2px;
+        margin-bottom:35px;
     }
 
     .subtitle{
         font-size:1rem;
-
+        letter-spacing:1px;
+        text-align:center;
         padding:0 10px;
     }
 
     .pen{
-        font-size:8rem;
-
-        right:-40px;
-        top:10px;
+        font-size:110px;
+        left:-45px;
+        top:-30px;
+        opacity:.35;
     }
 
     ul{
-        width:95%;
+        width:100%;
+        gap:18px;
     }
 
     ul li a{
-        font-size:1.2rem;
         padding:18px;
+        font-size:1.2rem;
     }
 
     .title::before,
     .title::after{
-        width:100px;
+        width:90px;
+    }
+}
+
+@media (max-width:380px){
+
+    body{
+        padding:20px 12px;
+    }
+
+    .title{
+        font-size:1.8rem;
+        letter-spacing:1px;
+        margin-bottom:28px;
+    }
+
+    .subtitle{
+        font-size:.9rem;
+    }
+
+    .pen{
+        font-size:85px;
+        left:-25px;
+        top:-15px;
+        opacity:.25;
+    }
+
+    ul{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    ul li a{
+        font-size:1rem;
+        padding:16px;
+    }
+
+    .title::before,
+    .title::after{
+        width:70px;
     }
 }

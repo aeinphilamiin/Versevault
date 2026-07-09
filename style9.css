@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@400;500;700&display=swap');
 
+/* =========================
+   RESET
+========================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* =========================
+   BODY
+========================= */
 body{
     min-height:100vh;
 
@@ -18,17 +24,16 @@ body{
 
     overflow-x:hidden;
 
-    /* Luxury Brown & Ivory Gradient */
     background:
-    radial-gradient(circle at top left,#f5e6c844,transparent 30%),
-    radial-gradient(circle at bottom right,#8b5e3c55,transparent 30%),
-    linear-gradient(
-        135deg,
-        #1f1713,
-        #3a2b24,
-        #5c4033,
-        #f5e6c8
-    );
+        radial-gradient(circle at top left,#f5e6c844,transparent 30%),
+        radial-gradient(circle at bottom right,#8b5e3c55,transparent 30%),
+        linear-gradient(
+            135deg,
+            #1f1713,
+            #3a2b24,
+            #5c4033,
+            #f5e6c8
+        );
 
     background-size:300% 300%;
     animation:bgFlow 12s ease infinite;
@@ -36,9 +41,12 @@ body{
     color:#f8f1e4;
 
     position:relative;
+    font-family:'Cormorant Garamond',serif;
 }
 
-/* Animated Background */
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
 @keyframes bgFlow{
     0%{
         background-position:0% 50%;
@@ -51,9 +59,12 @@ body{
     }
 }
 
-/* Soft Glow */
+/* =========================
+   GLOW
+========================= */
 body::before{
     content:"";
+
     position:absolute;
 
     width:450px;
@@ -80,11 +91,14 @@ body::before{
     }
 }
 
-/* Heading */
+/* =========================
+   TITLE
+========================= */
 .title{
     position:relative;
 
     font-family:'Cinzel',serif;
+
     font-size:5rem;
 
     letter-spacing:5px;
@@ -100,11 +114,40 @@ body::before{
     animation:fadeDown 1.5s ease;
 }
 
+.title::before,
+.title::after{
+    content:"";
 
+    position:absolute;
 
+    width:220px;
+    height:2px;
 
-/* Poem Card */
-h3{
+    background:linear-gradient(
+        to right,
+        transparent,
+        #d8b36d,
+        transparent
+    );
+}
+
+.title::before{
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.title::after{
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* =========================
+   POEM CARD
+========================= */
+.poem-card{
+
     position:relative;
 
     width:85%;
@@ -115,14 +158,6 @@ h3{
     border-radius:28px;
 
     text-align:center;
-
-    font-style:italic;
-
-    font-size:1.6rem;
-    line-height:2.3;
-    letter-spacing:1px;
-
-    color:#fff8e7;
 
     background:rgba(255,248,220,0.08);
 
@@ -139,8 +174,9 @@ h3{
     animation:floatCard 6s ease-in-out infinite;
 }
 
-/* Elegant Shine */
-h3::before{
+/* SHINE EFFECT */
+.poem-card::before{
+
     content:"";
 
     position:absolute;
@@ -158,200 +194,252 @@ h3::before{
     animation:shine 8s infinite;
 }
 
+/* =========================
+   POEM TEXT
+========================= */
+.poem-card p{
+
+    position:relative;
+    z-index:2;
+
+    font-size:1.65rem;
+
+    line-height:2.2;
+
+    letter-spacing:1px;
+
+    font-style:italic;
+
+    color:#fff8e7;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
 @keyframes shine{
+
     0%{
         left:-120%;
     }
+
     100%{
-        left:140%;
+        left:150%;
     }
+
 }
 
-/* Floating Effect */
 @keyframes floatCard{
+
     0%,100%{
-        transform:translateY(0px);
+        transform:translateY(0);
     }
+
     50%{
         transform:translateY(-10px);
     }
+
 }
 
-/* Fade */
 @keyframes fadeDown{
+
     from{
         opacity:0;
-        transform:translateY(-20px);
+        transform:translateY(-25px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
-/* Mobile */
-/* ==================================
-   ALL MOBILE DEVICES RESPONSIVE
-   320px - 768px
-================================== */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width:768px){
+/* =========================
+   RESPONSIVE MOBILE FIX
+========================= */
+
+@media(max-width:768px){
 
     body{
 
-        min-height:100vh;
+        min-height:100svh;
 
         padding:
-        clamp(20px,5vw,35px)
-        clamp(12px,4vw,20px);
+        35px 12px;
 
         justify-content:flex-start;
 
         overflow-x:hidden;
+
     }
+
+
+    body::before{
+
+        width:260px;
+        height:260px;
+
+        top:-80px;
+        left:-80px;
+
+        filter:blur(70px);
+
+    }
+
 
 
     /* TITLE */
 
     .title{
 
-        font-size:clamp(1.8rem,8vw,2.8rem);
+        width:100%;
+
+        font-size:clamp(2rem,8vw,3rem);
 
         letter-spacing:clamp(1px,1vw,3px);
 
-        text-align:center;
-
         line-height:1.2;
 
-        margin-bottom:clamp(25px,6vw,40px);
+        text-align:center;
 
-        width:100%;
+        margin-top:30px;
 
-        padding:0 10px;
+        margin-bottom:45px;
+
     }
 
-
-    /* TOP & BOTTOM DECORATIVE LINES */
 
     .title::before,
     .title::after{
 
-        width:clamp(70px,30vw,140px);
+        width:clamp(70px,35vw,120px);
 
         height:1.5px;
 
-        left:50%;
-
-        transform:translateX(-50%);
     }
 
 
     .title::before{
 
         top:-14px;
+
     }
 
 
     .title::after{
 
         bottom:-14px;
+
     }
 
 
 
-    /* POEM CARD */
+    /* CARD */
 
-    h3{
+    .poem-card{
 
         width:100%;
 
         max-width:100%;
 
         padding:
-        clamp(16px,5vw,30px);
+
+        clamp(18px,5vw,30px);
 
         border-radius:20px;
 
-        font-size:clamp(.9rem,4vw,1.2rem);
-
-        line-height:clamp(1.6,5vw,2);
-
-        letter-spacing:.5px;
-
-        text-align:center;
     }
 
 
-    /* REMOVE EXCESS FLOAT ON SMALL DEVICES */
 
-    h3{
+    .poem-card p{
 
-        animation:floatCardMobile 6s ease-in-out infinite;
+        font-size:
+
+        clamp(0.95rem,4vw,1.2rem);
+
+        line-height:
+
+        clamp(1.7,5vw,2);
+
+        letter-spacing:.5px;
+
     }
 
 
 }
 
 
-/* ==================================
+
+/* =========================
    EXTRA SMALL PHONES
    320px - 360px
-================================== */
+========================= */
 
 @media(max-width:360px){
 
 
     body{
 
-        padding:20px 10px;
+        padding:25px 10px;
+
     }
 
 
     .title{
 
-        font-size:1.7rem;
+        font-size:1.8rem;
 
         letter-spacing:1px;
+
+        margin-bottom:35px;
+
     }
 
 
     .title::before,
     .title::after{
 
-        width:60px;
+        width:65px;
+
     }
 
 
-    h3{
+    .poem-card{
 
-        padding:15px 12px;
+        padding:16px 12px;
+
+        border-radius:16px;
+
+    }
+
+
+    .poem-card p{
 
         font-size:.9rem;
 
-        line-height:1.65;
+        line-height:1.7;
 
-        border-radius:16px;
     }
 
 }
 
 
 
-/* ==================================
-   MOBILE FLOAT ANIMATION
-================================== */
+/* =========================
+   VERY TALL MOBILE SCREENS
+========================= */
 
-@keyframes floatCardMobile{
+@media(min-height:800px) and (max-width:768px){
 
-    0%,100%{
+    body{
 
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-5px);
+        justify-content:center;
 
     }
 

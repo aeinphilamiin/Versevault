@@ -346,19 +346,163 @@ h3::before{
 }
 
 /* Mobile */
-@media(max-width:700px){
+/* =====================================
+   FINAL MOBILE RESPONSIVE FIX
+   320px - 768px
+===================================== */
 
-    .subtitle{
-        font-size:2.8rem;
+.subtitle{
+    position:relative;
+}
+
+
+/* Bell Responsive */
+
+.subtitle::after{
+
+    right:clamp(-40px,-5vw,-10px);
+
+    top:clamp(-20px,5vw,45px);
+
+    font-size:clamp(3rem,12vw,5.5rem);
+
+    animation:ringBell 10s ease-in-out infinite;
+
+}
+
+
+
+/* Mobile Devices */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:
+        clamp(20px,5vw,35px)
+        clamp(12px,4vw,20px);
+
+        justify-content:flex-start;
+
+        overflow-x:hidden;
+    }
+
+
+    .title{
+
+        width:100%;
+
+        font-size:clamp(1.8rem,8vw,2.8rem);
+
+        letter-spacing:clamp(1px,1vw,3px);
 
         text-align:center;
+
+        line-height:1.2;
+
+        margin-top:20px;
+
+        margin-bottom:45px;
     }
+
+
+    .title::before,
+    .title::after{
+
+        width:clamp(70px,30vw,140px);
+
+        left:50%;
+
+        right:auto;
+
+        transform:translateX(-50%);
+    }
+
+
+    .title::before{
+
+        top:-15px;
+
+    }
+
+
+    .title::after{
+
+        bottom:-15px;
+
+    }
+
+
+
+    h3{
+
+        width:100%;
+
+        padding:
+        clamp(16px,5vw,30px);
+
+        font-size:clamp(.9rem,4vw,1.2rem);
+
+        line-height:1.8;
+
+        border-radius:20px;
+    }
+
 
     .subtitle::after{
 
-        right:-35px;
-        top:35px;
+        right:-15px;
+
+        top:20px;
 
         font-size:3rem;
+
     }
+
+}
+
+
+
+/* Small Phones */
+
+@media(max-width:360px){
+
+    .title{
+
+        font-size:1.7rem;
+
+        letter-spacing:1px;
+
+    }
+
+
+    .title::before,
+    .title::after{
+
+        width:60px;
+
+    }
+
+
+    h3{
+
+        padding:15px 12px;
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+
+    .subtitle::after{
+
+        right:-5px;
+
+        top:10px;
+
+        font-size:2.4rem;
+
+    }
+
 }

@@ -190,72 +190,7 @@ h3::before{
 }
 
 /* Mobile */
-@media(max-width:700px){
 
-    .title{
-        font-size:3rem;
-        text-align:center;
-    }
-
-    .title::before{
-        width:50px;
-        height:50px;
-
-        top:-2px;
-        left:-10px;
-    }
-
-    .title::after{
-        width:30px;
-
-        top:38px;
-        left:28px;
-    }
-
-    .title::first-letter{
-        font-size:4rem;
-    }
-
-    h3{
-        width:95%;
-        padding:30px;
-        font-size:1.15rem;
-        line-height:2;
-    }
-}
-
-.title::before,
-.title::after{
-    content:"";
-
-    position:absolute;
-
-    width:220px;
-    height:1.5px;
-
-    background:linear-gradient(
-        to right,
-        transparent,
-        #c8a96b,
-        transparent
-    );
-}
-
-.title::before{
-    top:-20px;
-    right:38%;
-}
-
-.title::after{
-    bottom:-12px;
-}
-
-.title::after{
-    bottom:-22px;
-
-    left:50%;
-    transform:translateX(-50%);
-}
 /* Title */
 /* .title{
     position:relative;
@@ -283,26 +218,98 @@ h3::before{
 
 /* Very Large Vintage Dropped Pen */
 /* Very Large Vintage Dropped Pen */
+
+
+/* ============================
+   VINTAGE PEN RESPONSIVE
+============================ */
+
+.subtitle{
+    position:relative;
+}
+
+
 .subtitle::after{
+
     content:"🖋";
 
     position:absolute;
 
-    right:800px;   /* moved more to right */
-    top:-20px;
-    left:1210px;
+    right:clamp(-80px,-10vw,-30px);
 
-    font-size:10rem;
+    top:clamp(-40px,-5vw,-20px);
 
-    opacity:0.9;
+    font-size:clamp(4rem,12vw,10rem);
 
-    transform:rotate(0.1deg);
+    opacity:.85;
+
+    transform:rotate(-15deg);
 
     filter:
-        drop-shadow(0 0 18px rgba(231,174,62,0.3))
-        drop-shadow(0 0 40px rgba(0,0,0,0.5));
+        drop-shadow(0 0 18px rgba(231,174,62,.3))
+        drop-shadow(0 0 40px rgba(0,0,0,.5));
 
     animation:droppedPen 5s ease-in-out infinite;
 
     z-index:-1;
+}
+
+
+@keyframes droppedPen{
+
+    0%,100%{
+
+        transform:
+        rotate(-15deg)
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+        rotate(-8deg)
+        translateY(-15px);
+
+    }
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .subtitle::after{
+
+        right:-20px;
+
+        top:-35px;
+
+        font-size:5rem;
+
+        opacity:.45;
+
+    }
+
+}
+
+
+/* Small phones */
+
+@media(max-width:360px){
+
+    .subtitle::after{
+
+        right:-10px;
+
+        top:-25px;
+
+        font-size:3.5rem;
+
+        opacity:.35;
+
+    }
+
 }

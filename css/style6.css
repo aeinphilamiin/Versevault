@@ -229,30 +229,7 @@ h3::before{
 }
 
 
-.subtitle::after{
 
-    content:"🖋";
-
-    position:absolute;
-
-    right:clamp(10px,10vw, 30px);
-
-    top:clamp(-40px,-5vw,-20px);
-
-    font-size:clamp(4rem,12vw,10rem);
-
-    opacity:.85;
-
-    transform:rotate(-15deg);
-
-    filter:
-        drop-shadow(0 0 18px rgba(231,174,62,.3))
-        drop-shadow(0 0 40px rgba(0,0,0,.5));
-
-    animation:droppedPen 5s ease-in-out infinite;
-
-    z-index:-1;
-}
 
 
 @keyframes droppedPen{
@@ -311,5 +288,100 @@ h3::before{
         opacity:.35;
 
     }
+
+}
+
+@media (max-width:320px){
+
+    body{
+        padding:15px 8px;
+    }
+
+    .title{
+
+        font-size:1.6rem;
+
+        letter-spacing:1px;
+
+    }
+
+    h3{
+
+        padding:15px;
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+    .subtitle::after{
+
+        font-size:3rem;
+
+        right:0;
+
+        top:-15px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+        padding:20px 10px;
+    }
+
+    .title{
+
+        font-size:2rem;
+
+        letter-spacing:2px;
+
+        margin-bottom:20px;
+
+    }
+
+    h3{
+
+        width:100%;
+
+        padding:18px;
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+    }
+
+    .subtitle::after{
+
+        font-size:4rem;
+
+        top:-20px;
+
+        right:-5px;
+
+        opacity:.4;
+
+    }
+
+}
+.subtitle::after{
+
+    content:"🖋";
+
+    position:absolute;
+
+    right:clamp(0px,4vw,30px);
+
+    top:clamp(-25px,-3vw,-10px);
+
+    font-size:clamp(3rem,10vw,8rem);
+
+    opacity:.5;
+
+    transform:rotate(-15deg);
 
 }
